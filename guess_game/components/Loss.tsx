@@ -2,8 +2,8 @@
 export default function Loss({reset}) {
     return (
         <div>
-            Você perdeu, lamento
-            <input type="button" value="Reiniciar" onClick={() => reset()} />
+            Você perdeu, lamento<br />
+            <input type="button" className="button" value="Reiniciar" onClick={() => reset()} />
         </div>
     );
 };
