@@ -1,20 +1,20 @@
 import type {NextPage} from 'next'
-
-let random_number: number = Math.floor((Math.random() * 100) + 1);
-let attemps: number = 0;
-let user_number: number = 0;
-
-let handleInput: any = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
-    user_number = +event.target.value;
-};
+import React, {useState, useEffect} from 'react'
 
 const Home: NextPage = () => {
+    const [random_number, setRandomNumber] = useState(0);
+
+    useEffect(() => {
+        setRandomNumber(Math.floor((Math.random() * 100) + 1));
+    }, [])
+
+    let [attempts, _setAttempts] = useState(0);
+    let [user_number, setUserNumber] = useState(0);
     return (
         <div>
             <div>Jogo da adivinhação</div>
             <div>Qual o número sorteado?(entre 1 e 100)</div>
-            <div>{user_number}Parabéns você acertou em {attemps} o número sorteado é {random_number}</div>
+            <div> O número Chutado foi {user_number} o número escolhido foi {random_number} a quantidade de tentativas foram {attempts}</div>
             <form id="app-guess" >
                 <fieldset>
                     <legend>Informe um número</legend>
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
                             placeholder="Seu número chutado é"
                             required
                             autoFocus
-                            onChange={handleInput}
+                            onChange={(event) => setUserNumber(+event.target.value)}
                         />
 
                     </div>
