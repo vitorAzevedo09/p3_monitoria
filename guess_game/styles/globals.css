@@ -24,8 +24,8 @@ body {
 }
 
 .button {
-
-  border-radius: 5%;
+  border-radius: 7%;
+  background: white;
 }
 
 .container{
